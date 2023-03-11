@@ -40,5 +40,6 @@ https://user-images.githubusercontent.com/54028832/224478914-6873598e-4c91-4c08-
 - Website [herkura.is-a.dev/](https://herkura.is-a.dev/)
 - GitHub [@herkura](https://{github.com/herkura})
 
-## Note: This project was built for Piplani Enterprises
+## Note: 
+This project was built for Piplani Enterprises
 
