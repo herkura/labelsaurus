@@ -9,19 +9,50 @@ function print(){
     var size = document.getElementById("size").value;
     var date = document.getElementById("date").value;
     
+    var printWindow = window.open('', 'Label');
     // desgning the page
-    var output = "<html><head><title>Label</title><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'/></head>"
-    output +=  "<body><header><h1 class='text-center font-monospace'>PIPLANI ENTERPRISES</h1><p class='text-center' style='font-size:15px'>(AN ISO 9001:2000 Co.)<br>PLOT NO. 16-17, GALI NO. 3 EAST, SARURPUR IND. AREA<br>SOHNA ROAD, FARIDABAD-121005</p></header>";
-    output += "<div class='container'><div class='row'><div class='col-12 col-lg-6'><p>DESCRIPTION: " + description + "</p>";
-    output += "<p>CODE NUMBER: " + code_num + "</p>";
-    output += "<p>QUANTITY: " + qty + "</p>";
-    output += "<p>NO. OF CASES: " + cases + "</p>";
-    output += "<p>INVOICE NO: " + invoice + "</p></div>";
-    output += "<div class='col-12 col-lg-6'><p>LOT SIZE: " + size + "</p>";
-    output += "<p>DATE: " + date + "</p></div>";
-    output += "</div></div></body></html>";
+    var labelstyle = `
+    .text-center{
+        text-align: center;
+    }
+    .font-heading{
+        font-family: sans-serif;
+        font-weight: normal;
+    }
+    .font-subheading{
+        font-family: sans-serif;
+        font-weight: normal;
+        font-size: 12px;
+        top:5px;
+        bottom: 20px;
+    }
+    .col{
+        column-count: 2;
+        column-gap: 10px;
+        column-span: all;
+    }
+    p{
+        font-family: sans-serif;
+        font-weight: normal;
+    }
+    `;
+    var output = printWindow.document.head.innerHTML = `<style>${labelstyle}</style>`;
+    var labelstructure = `
+    <h1 class = "text-center font-heading">PIPLANI ENTERPRISES</h1>
+    <p class = "text-center font-subheading">(AN ISO 9001:2000 Co.)<br>PLOT NO. 16-17, GALI NO. 3 EAST, SARURPUR IND. AREA<br>SOHNA ROAD, FARIDABAD-121005</p>
+    <div class="col">
+        <p><label for="desc">DESCRIPTION:</label></p>
+        <textarea name="desc" id="desc"  rows="5" cols="50">${description}</textarea>
+        <p>CODE NUMBER:${code_num}</p>
+        <p>QUANTITY: ${qty}</p>
+        <p>NO. OF CASES:${cases}</p>
+        <p>INVOICE NO:${invoice}</p>
+        <p>LOT SIZE:${size}</p>
+        <p>DATE:${date}</p>
+    </div>
+`;
 
-    var printWindow = window.open('', 'PrintWindow');
+    output+= printWindow.document.body.innerHTML = labelstructure;
     for(var i=0;i<cases;i++){
         printWindow.document.write(output);
     }
