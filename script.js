@@ -22,7 +22,7 @@ function print(){
     .font-subheading{
         font-family: sans-serif;
         font-weight: normal;
-        font-size: 12px;
+        font-size: 10px;
         top:5px;
         bottom: 20px;
     }
