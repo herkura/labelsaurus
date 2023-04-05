@@ -42,7 +42,7 @@ function print(){
     <p class = "text-center font-subheading">(AN ISO 9001:2000 Co.)<br>PLOT NO. 16-17, GALI NO. 3 EAST, SARURPUR IND. AREA<br>SOHNA ROAD, FARIDABAD-121005</p>
     <div class="col">
         <p><label for="desc">DESCRIPTION:</label></p>
-        <textarea name="desc" id="desc"  rows="5" cols="50">${description}</textarea>
+        <textarea name="desc" id="desc"  rows="5" cols="40">${description}</textarea>
         <p>CODE NUMBER:${code_num}</p>
         <p>QUANTITY: ${qty}</p>
         <p>NO. OF CASES:${cases}</p>
